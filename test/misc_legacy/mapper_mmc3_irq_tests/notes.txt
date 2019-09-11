@@ -1,0 +1,1 @@
+I modified the MMC3_alt test's iNES header and gave it submapper 4, indicating MMC3A IRQ behavior described here: https://wiki.nesdev.com/w/index.php/MMC3#IRQ_Specifics. As far as I can tell, the two modes are mutually exclusive, but the MMC3C behavior is the best choice as the default.

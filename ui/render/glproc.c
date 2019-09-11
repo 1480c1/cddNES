@@ -1,0 +1,150 @@
+#include "glproc.h"
+
+#if defined(_WIN32)
+
+#define GL_PROC(cast, func) \
+	func = (cast) wglGetProcAddress(#func); \
+	if (func == NULL) {gl_proc_unload(); return;}
+
+bool GL_PROC_SUCCESS = false;
+
+PFNGLGETATTRIBLOCATIONPROC glGetAttribLocation = NULL;
+PFNGLSHADERSOURCEPROC glShaderSource = NULL;
+PFNGLBINDBUFFERPROC glBindBuffer = NULL;
+PFNGLVERTEXATTRIBPOINTERPROC glVertexAttribPointer = NULL;
+PFNGLCREATEPROGRAMPROC glCreateProgram = NULL;
+PFNGLUNIFORM1IPROC glUniform1i = NULL;
+PFNGLUNIFORM1FPROC glUniform1f = NULL;
+PFNGLACTIVETEXTUREPROC glActiveTexture = NULL;
+PFNGLDELETEBUFFERSPROC glDeleteBuffers = NULL;
+PFNGLENABLEVERTEXATTRIBARRAYPROC glEnableVertexAttribArray = NULL;
+PFNGLDISABLEVERTEXATTRIBARRAYPROC glDisableVertexAttribArray = NULL;
+PFNGLBUFFERDATAPROC glBufferData = NULL;
+PFNGLDELETESHADERPROC glDeleteShader = NULL;
+PFNGLGETSHADERINFOLOGPROC glGetShaderInfoLog = NULL;
+PFNGLGENBUFFERSPROC glGenBuffers = NULL;
+PFNGLCOMPILESHADERPROC glCompileShader = NULL;
+PFNGLLINKPROGRAMPROC glLinkProgram = NULL;
+PFNGLGETUNIFORMLOCATIONPROC glGetUniformLocation = NULL;
+PFNGLUNIFORM2FPROC glUniform2f = NULL;
+PFNGLCREATESHADERPROC glCreateShader = NULL;
+PFNGLATTACHSHADERPROC glAttachShader = NULL;
+PFNGLUSEPROGRAMPROC glUseProgram = NULL;
+PFNGLGETSHADERIVPROC glGetShaderiv = NULL;
+PFNGLDETACHSHADERPROC glDetachShader = NULL;
+PFNGLDELETEPROGRAMPROC glDeleteProgram = NULL;
+PFNGLBLENDEQUATIONPROC glBlendEquation = NULL;
+PFNGLUNIFORMMATRIX4FVPROC glUniformMatrix4fv = NULL;
+PFNGLBUFFERSUBDATAPROC glBufferSubData = NULL;
+PFNGLGENFRAMEBUFFERSPROC glGenFramebuffers = NULL;
+PFNGLBINDFRAMEBUFFERPROC glBindFramebuffer = NULL;
+PFNGLDRAWBUFFERSPROC glDrawBuffers = NULL;
+PFNGLFRAMEBUFFERTEXTURE2DPROC glFramebufferTexture2D = NULL;
+PFNGLDELETEFRAMEBUFFERSPROC glDeleteFramebuffers = NULL;
+PFNGLBLITFRAMEBUFFERPROC glBlitFramebuffer = NULL;
+PFNGLGENVERTEXARRAYSPROC glGenVertexArrays = NULL;
+PFNGLBINDVERTEXARRAYPROC glBindVertexArray = NULL;
+PFNGLBINDATTRIBLOCATIONPROC glBindAttribLocation = NULL;
+PFNGLDELETEVERTEXARRAYSPROC glDeleteVertexArrays = NULL;
+PFNGLBLENDEQUATIONSEPARATEPROC glBlendEquationSeparate = NULL;
+PFNGLBLENDFUNCSEPARATEPROC glBlendFuncSeparate = NULL;
+PFNGLGETPROGRAMIVPROC glGetProgramiv = NULL;
+PFNGLGETPROGRAMINFOLOGPROC glGetProgramInfoLog = NULL;
+
+static void gl_proc_unload(void)
+{
+	glGetAttribLocation = NULL;
+	glShaderSource = NULL;
+	glBindBuffer = NULL;
+	glVertexAttribPointer = NULL;
+	glCreateProgram = NULL;
+	glUniform1i = NULL;
+	glUniform1f = NULL;
+	glActiveTexture = NULL;
+	glDeleteBuffers = NULL;
+	glEnableVertexAttribArray = NULL;
+	glDisableVertexAttribArray = NULL;
+	glBufferData = NULL;
+	glDeleteShader = NULL;
+	glGetShaderInfoLog = NULL;
+	glGenBuffers = NULL;
+	glCompileShader = NULL;
+	glLinkProgram = NULL;
+	glGetUniformLocation = NULL;
+	glUniform2f = NULL;
+	glCreateShader = NULL;
+	glAttachShader = NULL;
+	glUseProgram = NULL;
+	glGetShaderiv = NULL;
+	glDetachShader = NULL;
+	glDeleteProgram = NULL;
+	glBlendEquation = NULL;
+	glUniformMatrix4fv = NULL;
+	glBufferSubData = NULL;
+	glGenFramebuffers = NULL;
+	glBindFramebuffer = NULL;
+	glDrawBuffers = NULL;
+	glFramebufferTexture2D = NULL;
+	glDeleteFramebuffers = NULL;
+	glBlitFramebuffer = NULL;
+	glGenVertexArrays = NULL;
+	glBindVertexArray = NULL;
+	glBindAttribLocation = NULL;
+	glDeleteVertexArrays = NULL;
+	glBlendEquationSeparate = NULL;
+	glBlendFuncSeparate = NULL;
+	glGetProgramiv = NULL;
+	glGetProgramInfoLog = NULL;
+
+	GL_PROC_SUCCESS = false;
+}
+
+void gl_proc_load(void)
+{
+	GL_PROC(PFNGLGETATTRIBLOCATIONPROC, glGetAttribLocation);
+	GL_PROC(PFNGLSHADERSOURCEPROC, glShaderSource);
+	GL_PROC(PFNGLBINDBUFFERPROC, glBindBuffer);
+	GL_PROC(PFNGLVERTEXATTRIBPOINTERPROC, glVertexAttribPointer);
+	GL_PROC(PFNGLCREATEPROGRAMPROC, glCreateProgram);
+	GL_PROC(PFNGLUNIFORM1IPROC, glUniform1i);
+	GL_PROC(PFNGLUNIFORM1FPROC, glUniform1f);
+	GL_PROC(PFNGLACTIVETEXTUREPROC, glActiveTexture);
+	GL_PROC(PFNGLDELETEBUFFERSPROC, glDeleteBuffers);
+	GL_PROC(PFNGLENABLEVERTEXATTRIBARRAYPROC, glEnableVertexAttribArray);
+	GL_PROC(PFNGLDISABLEVERTEXATTRIBARRAYPROC, glDisableVertexAttribArray);
+	GL_PROC(PFNGLBUFFERDATAPROC, glBufferData);
+	GL_PROC(PFNGLDELETESHADERPROC, glDeleteShader);
+	GL_PROC(PFNGLGETSHADERINFOLOGPROC, glGetShaderInfoLog);
+	GL_PROC(PFNGLGENBUFFERSPROC, glGenBuffers);
+	GL_PROC(PFNGLCOMPILESHADERPROC, glCompileShader);
+	GL_PROC(PFNGLLINKPROGRAMPROC, glLinkProgram);
+	GL_PROC(PFNGLGETUNIFORMLOCATIONPROC, glGetUniformLocation);
+	GL_PROC(PFNGLUNIFORM2FPROC, glUniform2f);
+	GL_PROC(PFNGLCREATESHADERPROC, glCreateShader);
+	GL_PROC(PFNGLATTACHSHADERPROC, glAttachShader);
+	GL_PROC(PFNGLUSEPROGRAMPROC, glUseProgram);
+	GL_PROC(PFNGLGETSHADERIVPROC, glGetShaderiv);
+	GL_PROC(PFNGLDETACHSHADERPROC, glDetachShader);
+	GL_PROC(PFNGLDELETEPROGRAMPROC, glDeleteProgram);
+	GL_PROC(PFNGLBLENDEQUATIONPROC, glBlendEquation);
+	GL_PROC(PFNGLUNIFORMMATRIX4FVPROC, glUniformMatrix4fv);
+	GL_PROC(PFNGLBUFFERSUBDATAPROC, glBufferSubData);
+	GL_PROC(PFNGLGENFRAMEBUFFERSPROC, glGenFramebuffers);
+	GL_PROC(PFNGLBINDFRAMEBUFFERPROC, glBindFramebuffer);
+	GL_PROC(PFNGLDRAWBUFFERSPROC, glDrawBuffers);
+	GL_PROC(PFNGLFRAMEBUFFERTEXTURE2DPROC, glFramebufferTexture2D);
+	GL_PROC(PFNGLDELETEFRAMEBUFFERSPROC, glDeleteFramebuffers);
+	GL_PROC(PFNGLBLITFRAMEBUFFERPROC, glBlitFramebuffer);
+	GL_PROC(PFNGLGENVERTEXARRAYSPROC, glGenVertexArrays);
+	GL_PROC(PFNGLBINDVERTEXARRAYPROC, glBindVertexArray);
+	GL_PROC(PFNGLBINDATTRIBLOCATIONPROC, glBindAttribLocation);
+	GL_PROC(PFNGLDELETEVERTEXARRAYSPROC, glDeleteVertexArrays);
+	GL_PROC(PFNGLBLENDEQUATIONSEPARATEPROC, glBlendEquationSeparate);
+	GL_PROC(PFNGLBLENDFUNCSEPARATEPROC, glBlendFuncSeparate);
+	GL_PROC(PFNGLGETPROGRAMIVPROC, glGetProgramiv);
+	GL_PROC(PFNGLGETPROGRAMINFOLOGPROC, glGetProgramInfoLog);
+
+	GL_PROC_SUCCESS = true;
+}
+
+#endif

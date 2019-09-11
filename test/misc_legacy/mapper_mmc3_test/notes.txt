@@ -1,0 +1,3 @@
+I modified the MMC6 test's iNES header and gave it submapper 1.
+
+IRQ behavior described here: https://wiki.nesdev.com/w/index.php/MMC3#IRQ_Specifics

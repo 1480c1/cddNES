@@ -1,0 +1,1 @@
+This test will not pass in faux-stereo mode, put it in mono.

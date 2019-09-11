@@ -1,0 +1,1 @@
+The screen will wiggle if it doesn't have the PPU/CPU alignment it likes.

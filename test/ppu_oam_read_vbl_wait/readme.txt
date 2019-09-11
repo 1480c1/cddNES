@@ -1,0 +1,3 @@
+http://forums.nesdev.com/viewtopic.php?t=11041
+
+Then I figured that the oam_read test from the previous thread probably also expects to be able to do the OAM reads at any time during forced blanking, which would fail on PAL NES. So I modified the test ROM to wait for VBlank every 16 OAM reads/writes to make sure it never accesses OAM more than 20ish scanlines into the VBlank, and since then the test ROM has passed every time I've tried it.

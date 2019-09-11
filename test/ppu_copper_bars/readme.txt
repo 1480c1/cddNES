@@ -1,0 +1,1 @@
+A good sanity check on color emphasis and grayscale behavior.

@@ -1,0 +1,1 @@
+These tests require the emulator to use mono audio.

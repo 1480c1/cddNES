@@ -1,0 +1,16 @@
+.vs
+
+*.obj
+*.pdb
+*.ilk
+*.res
+
+*.o
+
+*.sav
+
+rom/
+
+cddNES
+cddNES.exe
+settings.json
