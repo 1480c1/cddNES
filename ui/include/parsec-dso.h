@@ -43,7 +43,7 @@ typedef struct ParsecDSO {
 	dso->api.name = (decltype(dso->api.name)) SO_PROC(dso->so, #name); \
 	if (dso->api.name == NULL) {r = SO_ERR_SYMBOL; goto except;}
 
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 	#pragma warning(disable: 4152)
 	#pragma warning(disable: 4505)
 #else
@@ -158,7 +158,7 @@ static ParsecStatus ParsecInit(ParsecConfig *cfg, void *reserved, char *path, Pa
 #define ParsecHostD3D9SubmitFrame(dso, ...)  dso->api.ParsecHostD3D9SubmitFrame(dso->ps, __VA_ARGS__)
 #define ParsecHostD3D11SubmitFrame(dso, ...) dso->api.ParsecHostD3D11SubmitFrame(dso->ps, __VA_ARGS__)
 
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 	#pragma warning(default: 4505)
 	#pragma warning(default: 4152)
 #else

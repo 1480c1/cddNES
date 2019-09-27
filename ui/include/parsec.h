@@ -14,7 +14,7 @@
 	#define EXPORT
 #endif
 
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 	#pragma warning(disable: 4201)
 #endif
 
@@ -1266,6 +1266,6 @@ ParsecHostD3D11SubmitFrame(Parsec *ps, ParsecD3D11Device *device, ParsecD3D11Dev
 }
 #endif
 
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 	#pragma warning(default: 4201)
 #endif
